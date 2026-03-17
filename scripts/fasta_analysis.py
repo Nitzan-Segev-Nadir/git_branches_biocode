@@ -6,6 +6,14 @@ def read_fasta(filename):
                 seq += line.strip()
     return seq
 
+
+def gc_content(seq):
+    g = seq.count("G")
+    c = seq.count("C")
+    gc = (g + c) / len(seq) * 100
+    return gc
+
+  
 def at_content(seq):
     a = seq.count("A")
     t = seq.count("T")
@@ -13,6 +21,11 @@ def at_content(seq):
     return at
 
 
+
 sequence = read_fasta("data/sequence.fasta")
 print(sequence)
+
+print("GC content:", gc_content(sequence))
+
 print("AT content:", at_content(sequence))
+
